@@ -7,7 +7,7 @@ class Api::V1::AuctionsController < Api::ApplicationController
         # curl http://localhost:3000/api/v1/auctions #👈🏻 on terminal
         # or
         # http://localhost:3000/api/v1/auctions # 👈🏻 on browser
-        auction= Auction.order created_at: :desc
+        auctions= Auction.order created_at: :desc
         render json: auctions , each_serializer: AuctionCollectionSerializer
         
     end

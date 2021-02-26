@@ -1,6 +1,6 @@
 class Auction < ApplicationRecord
      # ASSOCIATION WITH USER MODEL
-     belongs_to :user
+     belongs_to :user,optional: true
 
      # ASSOCIATION WITH BID MODEL
      has_many :bids, dependent: :destroy
