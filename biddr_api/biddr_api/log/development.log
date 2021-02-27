@@ -1639,3 +1639,152 @@ Completed 200 OK in 33ms (Views: 3.0ms | ActiveRecord: 0.8ms | Allocations: 2160
 Completed 200 OK in 62ms (Views: 47.4ms | ActiveRecord: 10.5ms | Allocations: 6653)
 
 
+Started GET "/api/v1/auctions/2" for ::1 at 2021-02-26 20:05:15 -0800
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AuctionsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mAuction Load (0.7ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auctions_controller.rb:35:in `find_auction'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/auctions_controller.rb:16:in `show'
+[active_model_serializers]   [1m[36mBid Load (0.5ms)[0m  [1m[34mSELECT "bids".* FROM "bids" WHERE "bids"."auction_id" = $1[0m  [["auction_id", 2]]
+[active_model_serializers]   ↳ app/controllers/api/v1/auctions_controller.rb:16:in `show'
+[active_model_serializers] Rendered AuctionSerializer with ActiveModelSerializers::Adapter::Attributes (23.2ms)
+Completed 200 OK in 76ms (Views: 44.7ms | ActiveRecord: 10.9ms | Allocations: 23923)
+
+
+Started GET "/api/v1/current_user" for ::1 at 2021-02-26 20:05:19 -0800
+Processing by Api::V1::SessionsController#get_current_user as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with User (0.27ms)
+Completed 200 OK in 18ms (Views: 14.1ms | ActiveRecord: 0.4ms | Allocations: 7500)
+
+
+Started GET "/api/v1/auctions/2" for ::1 at 2021-02-26 20:05:19 -0800
+Processing by Api::V1::AuctionsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mAuction Load (0.5ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auctions_controller.rb:35:in `find_auction'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/auctions_controller.rb:16:in `show'
+[active_model_serializers]   [1m[36mBid Load (0.6ms)[0m  [1m[34mSELECT "bids".* FROM "bids" WHERE "bids"."auction_id" = $1[0m  [["auction_id", 2]]
+[active_model_serializers]   ↳ app/controllers/api/v1/auctions_controller.rb:16:in `show'
+[active_model_serializers] Rendered AuctionSerializer with ActiveModelSerializers::Adapter::Attributes (9.0ms)
+Completed 200 OK in 17ms (Views: 12.2ms | ActiveRecord: 2.0ms | Allocations: 3331)
+
+
+Started GET "/api/v1/auctions" for ::1 at 2021-02-26 20:05:31 -0800
+Processing by Api::V1::AuctionsController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+  [1m[36mAuction Load (1.1ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions" ORDER BY "auctions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/auctions_controller.rb:11:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.28ms)
+Completed 200 OK in 12ms (Views: 8.6ms | ActiveRecord: 1.6ms | Allocations: 1817)
+
+
+Started GET "/api/v1/auctions" for ::1 at 2021-02-26 20:05:51 -0800
+Processing by Api::V1::AuctionsController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+  [1m[36mAuction Load (0.5ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions" ORDER BY "auctions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/auctions_controller.rb:11:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.86ms)
+Completed 200 OK in 11ms (Views: 8.8ms | ActiveRecord: 1.0ms | Allocations: 1658)
+
+
+Started GET "/api/v1/auctions" for ::1 at 2021-02-26 20:06:06 -0800
+Processing by Api::V1::AuctionsController#index as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+  [1m[36mAuction Load (0.7ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions" ORDER BY "auctions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/auctions_controller.rb:11:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.01ms)
+Completed 200 OK in 11ms (Views: 9.0ms | ActiveRecord: 1.2ms | Allocations: 1678)
+
+
+Started GET "/api/v1/auctions/2" for ::1 at 2021-02-26 20:06:07 -0800
+Processing by Api::V1::AuctionsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mAuction Load (0.7ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auctions_controller.rb:35:in `find_auction'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+[active_model_serializers]   [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/auctions_controller.rb:16:in `show'
+[active_model_serializers]   [1m[36mBid Load (0.5ms)[0m  [1m[34mSELECT "bids".* FROM "bids" WHERE "bids"."auction_id" = $1[0m  [["auction_id", 2]]
+[active_model_serializers]   ↳ app/controllers/api/v1/auctions_controller.rb:16:in `show'
+[active_model_serializers] Rendered AuctionSerializer with ActiveModelSerializers::Adapter::Attributes (14.8ms)
+Completed 200 OK in 22ms (Views: 16.3ms | ActiveRecord: 2.5ms | Allocations: 3296)
+
+
+Started GET "/api/v1/auctions" for ::1 at 2021-02-26 20:06:26 -0800
+Processing by Api::V1::AuctionsController#index as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+  [1m[36mAuction Load (0.7ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions" ORDER BY "auctions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/auctions_controller.rb:11:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.23ms)
+Completed 200 OK in 13ms (Views: 10.0ms | ActiveRecord: 1.3ms | Allocations: 1656)
+
+
+Started GET "/api/v1/auctions/1" for ::1 at 2021-02-26 20:06:27 -0800
+Processing by Api::V1::AuctionsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mAuction Load (0.6ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auctions_controller.rb:35:in `find_auction'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+[active_model_serializers]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/auctions_controller.rb:16:in `show'
+[active_model_serializers]   [1m[36mBid Load (0.5ms)[0m  [1m[34mSELECT "bids".* FROM "bids" WHERE "bids"."auction_id" = $1[0m  [["auction_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/auctions_controller.rb:16:in `show'
+[active_model_serializers] Rendered AuctionSerializer with ActiveModelSerializers::Adapter::Attributes (9.5ms)
+Completed 200 OK in 24ms (Views: 11.4ms | ActiveRecord: 2.1ms | Allocations: 3297)
+
+
+Started POST "/api/v1/auctions" for ::1 at 2021-02-26 20:07:20 -0800
+Processing by Api::V1::AuctionsController#create as JSON
+  Parameters: {"title"=>"awesome possum domain", "description"=>"brief information *", "ends_at"=>"2019/02/16", "reserve_price"=>"500", "auction"=>{"title"=>"awesome possum domain", "description"=>"brief information *", "ends_at"=>"2019/02/16", "reserve_price"=>"500"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/auctions_controller.rb:22:in `create'
+  [1m[36mAuction Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "auctions" WHERE "auctions"."title" = $1 LIMIT $2[0m  [["title", "awesome possum domain"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auctions_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/auctions_controller.rb:22:in `create'
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 1.7ms | Allocations: 4560)
+
+
+  
+NoMethodError (undefined method `titelize!' for "awesome possum domain":String
+Did you mean?  titleize):
+  
+app/models/auction.rb:19:in `titelize_title'
+app/controllers/api/v1/auctions_controller.rb:22:in `create'
+Started POST "/api/v1/auctions" for ::1 at 2021-02-26 20:07:25 -0800
+Processing by Api::V1::AuctionsController#create as JSON
+  Parameters: {"title"=>"awesome possum domain", "description"=>"brief information *", "ends_at"=>"2019/02/16", "reserve_price"=>"500", "auction"=>{"title"=>"awesome possum domain", "description"=>"brief information *", "ends_at"=>"2019/02/16", "reserve_price"=>"500"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/auctions_controller.rb:22:in `create'
+  [1m[36mAuction Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "auctions" WHERE "auctions"."title" = $1 LIMIT $2[0m  [["title", "awesome possum domain"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auctions_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/auctions_controller.rb:22:in `create'
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 1.5ms | Allocations: 4531)
+
+
+  
+NoMethodError (undefined method `titelize!' for "awesome possum domain":String
+Did you mean?  titleize):
+  
+app/models/auction.rb:19:in `titelize_title'
+app/controllers/api/v1/auctions_controller.rb:22:in `create'
