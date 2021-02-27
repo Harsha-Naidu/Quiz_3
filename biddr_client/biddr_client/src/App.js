@@ -13,7 +13,7 @@ import SignInPage from './components/SignInPage';
 import SignUpPage from './components/SignUpPage';
 import AuthRoute from './components/AuthRoute';
 import NewAuctionForm from './components/NewAuctionForm';
-
+import AuctionNewPage from './components/AuctionNewPage';
 
 
 class App extends Component {
@@ -84,12 +84,12 @@ class App extends Component {
         <Switch>
           <Route path='/welcomepage' exact render={() => <div><h1>Going twice. Going once.</h1><h1>Sold to Biddr!</h1></div> } />
     
-          <AuthRoute exact path='/auctions/new' isAuth={this.state.user} component={NewAuctionForm}/>
+          <AuthRoute exact path='/auctions/new' isAuth={this.state.user} component={AuctionNewPage}/>
           
           <Route path='/auctions/:id' component={AuctionShowPage} />
           <Route path='/auctions' component={AuctionIndexPage} />
           
-          <Route path='/sign_in' render={(routeProps)=><SigninPage handleSubmit={this.handleSubmit} {...routeProps}/>} />
+          <Route path='/sign_in' render={(routeProps)=><SignInPage handleSubmit={this.handleSubmit} {...routeProps}/>} />
           <Route path='/sign_up' render={(routeProps)=><SignUpPage handleSignUp={this.handleSignUp} {...routeProps}/>}/> 
 
         </Switch>

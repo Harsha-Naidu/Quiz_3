@@ -45,6 +45,7 @@ class AuctionShowPage extends Component {
       render() {
         console.log('Auction Show Page Rendered')
         const { title, description, ends_at, reserve_price, created_at,bids} = this.state.auction;
+        
         return(
           <main>
             <AuctionDetails

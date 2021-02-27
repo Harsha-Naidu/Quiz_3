@@ -70,7 +70,7 @@ export const Auction = {
 }
 
 export const Bid = {
-    create(params){
+    create(params,id){
       return fetch(`${BASE_URL}/auctions/${id}`, {
         method: 'POST',
         credentials: 'include',

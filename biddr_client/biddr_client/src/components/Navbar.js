@@ -7,6 +7,8 @@ const Navbar = (props)=>{
   }
   return(
       <nav>
+          <NavLink to='/welcomepage'>Home</NavLink>
+          |
           <NavLink to='/auctions'>Auctions</NavLink>
           |
           <NavLink to='/auctions/new'>New Auction</NavLink>

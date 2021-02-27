@@ -1,6 +1,5 @@
 import React from 'react';
-// import './NewQuestionForm.css';
-
+import BlackInput from './BlackInput';
 
 const NewAuctionForm = ({ createAuction }) => {
 
@@ -30,6 +29,7 @@ const NewAuctionForm = ({ createAuction }) => {
           id='title'
         />
       </div>
+      
       <div>
          <label htmlFor='Description'>Description *</label>
         <textarea 

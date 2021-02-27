@@ -4,6 +4,7 @@ import BlackInput from './BlackInput';
 
 const SignUpPage=(props)=>{
     const {handleSignUp, history}=props;
+    
     function handleSubmit(event){
         event.preventDefault();
         const {currentTarget}=event;
@@ -30,26 +31,28 @@ const SignUpPage=(props)=>{
         <h3>Sign Up Form</h3>
         <form onSubmit={handleSubmit}>
             <div>
-                <label htmlFor="first_name">First Name *</label>
+                <label htmlFor="first_name">First Name *</label><br/>
                 <input type='text' name='first_name' id='first_name'/>
             </div>
             <div>
-                <label htmlFor="last_name">Last Name *</label>
+                <label htmlFor="last_name">Last Name *</label><br />
                 <input type='text' name='last_name' id='last_name'/>
             </div>
             <div>
-                <label htmlFor="email">Email *</label>
+                <label htmlFor="email">Email *</label><br />
                 <input type='email' name='email' id='email'/>
             </div>
             <div>
-                <label htmlFor="password">Password</label>
+                <label htmlFor="password">Password *</label><br/>
                 <input type='password' name='password' id='password'/>
             </div>
             <div>
-                <label htmlFor="password_confirmation">Password Confirmation *</label>
+                <label htmlFor="password_confirmation">Password Confirmation *</label><br />
                 <input type='password' name='password_confirmation' id='password_confirmation'/>
             </div>
+            <br />
             <BlackInput type='submit' value='Sign Up' />
+            
         </form>
         </main>
     )
