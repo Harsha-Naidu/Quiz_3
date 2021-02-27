@@ -1,7 +1,5 @@
 class AuctionSerializer < ActiveModel::Serializer
-  attributes (
-    :id, :title,:description,:ends_at,:reserve_price
-  )
+  attributes( :id, :title, :description, :ends_at, :created_at, :reserve_price )
 
 
   belongs_to :user
@@ -17,5 +15,5 @@ class AuctionSerializer < ActiveModel::Serializer
       end
   end
 
-  
+
 end
