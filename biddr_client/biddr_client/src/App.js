@@ -9,7 +9,7 @@ import {
 } from 'react-router-dom'
 import { Session } from './requests';
 import Navbar from './components/Navbar';
-import SigninPage from './components/SigninPage';
+import SignInPage from './components/SignInPage';
 import SignUpPage from './components/SignUpPage';
 import AuthRoute from './components/AuthRoute';
 import NewAuctionForm from './components/NewAuctionForm';
@@ -83,12 +83,9 @@ class App extends Component {
        <Navbar currentUser={this.state.user} destroySession={this.destroySession} />
         <Switch>
           <Route path='/welcomepage' exact render={() => <div><h1>Going twice. Going once.</h1><h1>Sold to Biddr!</h1></div> } />
-        
-
-          {/* <Route path='/questions/new' component={QuestionNewPage} /> */}
+    
           <AuthRoute exact path='/auctions/new' isAuth={this.state.user} component={NewAuctionForm}/>
           
-         
           <Route path='/auctions/:id' component={AuctionShowPage} />
           <Route path='/auctions' component={AuctionIndexPage} />
           
